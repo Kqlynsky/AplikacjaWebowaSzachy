@@ -1,10 +1,8 @@
 class StaticController < ApplicationController
-    def index
-      @some_variable = 123
-    end
-    def feed
-    end
+  before_action :require_token, only: [:feed]
     def index
         @players = Player.all
+      end
+      def feed
       end
   end
