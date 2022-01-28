@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
         require_token
         if current_player
           current_player.invalidate_token
-          head :ok
+          render json: { message: 'Wylogowano' }
         end
       end
     end

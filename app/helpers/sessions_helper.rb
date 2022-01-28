@@ -19,7 +19,7 @@ module SessionsHelper
     def require_token
       respond_to do |format|
         format.json {
-          authenticate_token || render_unauthorized("Access denied")
+          authenticate_token || render_unauthorized("Niepoprawny token")
         }
         format.html { }
       end
