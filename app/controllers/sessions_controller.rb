@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     respond_to do |format|
-      player = Player.find_by(index: params[:session][:index])
+      player = Player.find_by(email: params[:session][:email])
       if player && player.authenticate(params[:session][:password])
         format.html do
           log_in player
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   def destroy
     respond_to do |format|
       format.html do
-        log_out
+        log_out 
         redirect_to root_url
       end
       format.json do
